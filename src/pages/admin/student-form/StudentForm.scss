@@ -1,0 +1,77 @@
+@use "src/scss" as *;
+
+.student-form {
+
+  &__title {
+    position: relative;
+    width: 50%;
+    font-size: 26px;
+    padding: 10px 1rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    color: #fff;
+    background: var(--admin-cl);
+
+    &::before {
+      position: absolute;
+      bottom: 0;
+      left: 10%;
+      width: 30px;
+      height: 30px;
+      content: '';
+      background: var(--admin-cl);
+      transform: rotate(45deg);
+      z-index: -1;
+    }
+
+    @include tablet {
+      width: 80%;
+    }
+  }
+
+  .form {
+    display: grid;
+    grid-template-columns: 350px 350px 300px;
+    gap: 1rem;
+    padding-inline: 1rem;
+    padding-bottom: 2rem;
+
+    @include breakpoint-down(1280px) {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+    @include tablet {
+      grid-template-columns: 1fr 1fr;
+    }
+    @include breakpoint-down(800px) {
+      grid-template-columns: 1fr;
+    }
+
+    .files {
+      padding: 12px 1rem;
+      border-radius: 12px;
+      border: 2px solid #aaa;
+      background: #CDCDCD;
+
+
+      .file {
+        display: none;
+      }
+    }
+
+    .inp {
+      border-color: #aaa;
+
+      &:focus {
+        border-color: var(--admin-cl);
+      }
+    }
+
+    .btn {
+      padding-inline: 2rem;
+      border-radius: 12px;
+      border: 1px solid var(--txt-cl);
+      color: var(--txt-cl);
+      background: #CDCDCD;
+    }
+  }
+}

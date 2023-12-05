@@ -1,0 +1,207 @@
+@use '/src/scss' as *;
+
+.footer {
+  padding-block: 5rem 1rem;
+  color: #fff;
+  background: var(--main-cl);
+
+  @include tablet {
+    padding-top: 3rem;
+  }
+
+  &__inner {
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: 1.5fr 2fr 2fr 1.5fr;
+    gap: 10px;
+    margin: 0 auto 2.5rem;
+    position: relative;
+    left: 2rem;
+
+    @include tablet {
+      position: static;
+      grid-template-columns: 1fr;
+      text-align: center;
+      gap: 2rem;
+    }
+    @include mobile {
+      display: none;
+    }
+  }
+
+  &__logo {
+    display: block;
+    width: 150px;
+    min-height: 80px;
+    margin-right: 2rem;
+
+    @include tablet {
+      margin: 0 auto;
+    }
+    @include mobile {
+      display: none;
+    }
+  }
+
+  &__address {
+    max-width: 250px;
+    font-style: normal;
+    font-size: 20px;
+    line-height: 1.3;
+
+    @include tablet {
+      margin: 0 auto;
+    }
+    @include mobile {
+      display: none;
+    }
+
+    &.address2 {
+      position: relative;
+      display: none;
+      margin-bottom: 1.5rem;
+
+      .icon {
+        position: absolute;
+        top: 6px;
+        left: -1rem;
+        font-size: 26px;
+      }
+
+      @include mobile {
+        display: block;
+      }
+    }
+  }
+
+  .nav {
+
+    &__txt {
+      display: block;
+      font-weight: 500;
+      font-size: 18px;
+      margin-bottom: 1rem;
+
+      @include mobile {
+        text-align: center;
+      }
+    }
+    
+    &__list {
+      display: flex;
+      flex-flow: column;
+      gap: 10px;
+
+      @include mobile {
+        text-align: center;
+      }
+
+      .item {
+
+        .link {
+          font-size: 18px;
+          color: #ffffffcc;
+          transition: 0.2s ease;
+
+          &:hover {
+            color: var(--txt-cl);
+          }
+        }
+      }
+    }
+  }
+
+  .socials {
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: 1.5fr 3fr 2fr 0.5fr;
+    margin: 0 auto 2rem;
+    position: relative;
+    left: 2rem;
+
+    @include tablet {
+      position: static;
+      max-width: unset;
+      display: block;
+      text-align: center;
+
+      .row {
+        justify-content: center;
+      }
+    }
+
+    a {
+      color: #fff;
+    }
+
+    .tel {
+      display: block;
+      font-weight: 500;
+      font-size: 32px;
+      letter-spacing: -1px;
+      margin-bottom: 1.2rem;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: var(--txt-cl);
+      }
+
+      @include mobile {
+        margin-bottom: 2rem;
+      }
+    }
+    .mail {
+      font-size: 18px;
+      margin-bottom: 1rem;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: var(--txt-cl);
+      }
+
+      @include mobile {
+        margin-bottom: 2rem;
+      }
+    }
+
+    .icon {
+
+      i {
+        font-size: 28px;
+        color: #fff;
+        transition: color 0.2s ease;
+
+        &:hover {
+          color: var(--txt-cl);
+        }
+      }
+    }
+  }
+
+  .around {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  &__rights2 {
+    position: relative;
+    top: -55px;
+    margin-right: 2rem;
+    opacity: 0.8;
+
+    @include tablet {
+      display: none;
+    }
+  }
+  &__rights {
+    display: none;
+    text-align: center;
+    font-size: 14px;
+    padding-block: 1.5rem 1rem;
+    border-top: 1px solid #ffffff20;
+    opacity: 0.8;
+
+    @include tablet {
+      display: block;
+    }
+  }
+}

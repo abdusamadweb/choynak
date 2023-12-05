@@ -1,0 +1,11 @@
+@use "src/scss" as *;
+
+.conditions {
+  padding-block: 8rem;
+
+  &__title {
+    font-weight: 600;
+    font-size: 58px;
+    margin: 4rem 0;
+  }
+}

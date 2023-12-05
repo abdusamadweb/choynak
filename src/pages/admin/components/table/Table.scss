@@ -1,0 +1,188 @@
+@use "src/scss" as *;
+
+.table {
+  padding-block: 1rem;
+
+  &__title {
+    position: relative;
+    width: 50%;
+    font-size: 26px;
+    padding: 10px 1rem;
+    margin-bottom: 2rem;
+    color: #fff;
+    background: var(--admin-cl);
+
+    &::before {
+      position: absolute;
+      bottom: 0;
+      left: 10%;
+      width: 30px;
+      height: 30px;
+      content: '';
+      background: var(--admin-cl);
+      transform: rotate(45deg);
+      z-index: -1;
+    }
+
+    @include tablet {
+      width: 80%;
+    }
+  }
+
+  .body {
+    padding-left: 10px;
+    padding-bottom: 2rem;
+
+    @include breakpoint-down(1270px) {
+      overflow-x: scroll;
+    }
+    @include mobile {
+      padding-left: 0;
+      overflow-x: hidden;
+    }
+
+    .grid {
+      grid-template-columns: 50px 250px 250px 250px 300px;
+
+      @include mobile {
+        grid-template-columns: 7% 27% 23% 25% 17%;
+      }
+    }
+
+    &__txts {
+
+      .txt {
+        font-weight: 500;
+        padding: 1rem;
+        border: 1px solid #eee;
+
+        @include mobile {
+          font-size: 13px;
+          padding: 10px 5px;
+        }
+        @include phone {
+          font-size: 10px;
+        }
+      }
+    }
+
+    &__list {
+
+      .item {
+
+        .txt {
+          font-size: 14px;
+          padding: 1rem;
+          border: 1px solid #eee;
+
+          @include mobile {
+            font-size: 12px;
+            padding: 10px 5px;
+          }
+          @include phone {
+            font-size: 10px;
+          }
+        }
+
+        .btns {
+          gap: 10px;
+
+          @include mobile {
+            display: none;
+            flex-flow: row wrap;
+            gap: 5px;
+          }
+
+          &.btns2 {
+            display: none;
+
+            @include mobile {
+              display: flex;
+            }
+          }
+
+          button {
+            font-size: 14px;
+            padding: 4px 10px;
+            border-radius: 10px;
+            border: 1px solid var(--txt-cl);
+
+            @include mobile {
+              font-weight: 500;
+              font-size: 12px;
+            }
+
+            &.del {
+              color: #fff;
+              background: #ff0000;
+
+              i {
+                color: #fff;
+              }
+            }
+            &.check {
+              color: #fff;
+              background: green;
+
+              i {
+                color: #fff;
+              }
+            }
+
+            i {
+              font-size: 16px;
+              color: var(--txt-cl);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .modal {
+
+    .form {
+
+      &__title {
+        display: block;
+        text-align: center;
+        font-weight: 600;
+        font-size: 24px;
+        margin-bottom: 1rem;
+      }
+
+      &__label {
+        margin-bottom: 19px;
+      }
+      .txt {
+        font-size: 16px;
+        padding: 0;
+        margin-bottom: 10px;
+        border: none;
+      }
+
+      .btn {
+        padding: 8px 1rem;
+      }
+      
+      .btns {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 2rem;
+        
+        button {
+          width: 30%;
+          font-weight: 500;
+          font-size: 16px;
+          padding: 12px 1rem;
+          color: #111;
+
+          &.del {
+            background: #ff0000;
+          }
+        }
+      }
+    }
+  }
+}

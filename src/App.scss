@@ -1,0 +1,144 @@
+@use "./scss" as *;
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  // main
+  --main-cl: #27A083;
+  --txt-cl: #04242D;
+  --body-bg: #fefefe;
+
+  // other
+  --dark-red-cl: #eb5e28;
+  --admin-cl : #015DC2;
+}
+
+body {
+  font-family: $font-family;
+  color: var(--txt-cl);
+  background: var(--body-bg);
+  overflow-x: hidden;
+}
+
+.scroll-top {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid #ffffff30;
+  background: var(--main-cl);
+  z-index: 5;
+
+  .icon {
+    font-size: 18px;
+    color: #fff;
+  }
+}
+
+// benefit
+.benefit {
+  padding-block: 80px 60px;
+  text-align: center;
+
+  &__title {
+    font-weight: 600;
+    font-size: 48px;
+    margin-bottom: 3rem;
+
+    span {
+      color: var(--main-cl);
+    }
+
+    @include mobile {
+      font-size: 32px;
+    }
+  }
+
+  &__list {
+    min-height: 185px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    justify-content: space-between;
+    gap: 1rem;
+
+    @include tablet {
+      grid-template-columns: repeat(3, 1fr);
+      row-gap: 2rem;
+    }
+    @include mobile {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .item {
+
+      &__img {
+        width: 100px;
+        aspect-ratio: 2/2;
+        object-fit: cover;
+        margin-bottom: 10px;
+      }
+
+      &__count {
+        display: block;
+        font-weight: 600;
+        font-size: 20px;
+        margin-bottom: 10px;
+      }
+
+      &__title {
+        max-width: 100px;
+      }
+    }
+  }
+}
+
+// admin page
+.admin-page {
+  padding-top: 1rem;
+  padding-left: 200px;
+
+  @include mobile {
+    padding-left: 0;
+  }
+}
+
+
+// btn
+.btn {
+  font-weight: 500;
+  padding: 13px 3rem;
+  border-radius: 15px;
+  border: 3px solid transparent;
+  background: var(--main-cl);
+  color: #fff;
+  transition: border-color 0.3s ease,
+  background-color 0.3s ease;
+  box-shadow: 0 10px 15px -2px rgba(0,0,0,0.2);
+
+  &:hover {
+    border: 3px solid var(--main-cl);
+    color: var(--txt-cl);
+    background: transparent;
+  }
+}
+
+//inp
+.inp {
+  padding: 12px 1rem;
+  border-radius: 12px;
+  border: 2px solid var(--txt-cl);
+  transition: border-color 0.2s ease;
+  outline: none;
+
+  &:focus {
+    border-color: var(--main-cl);
+  }
+}
+
+
+// select
+select, input {
+  color: var(--txt-cl);
+}

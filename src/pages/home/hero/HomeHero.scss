@@ -1,0 +1,106 @@
+@use 'src/scss' as *;
+
+.home {
+
+  .hero {
+
+    .swiper {
+      height: calc(100vh - $header-height);
+
+      @include mobile {
+        height: auto;
+      }
+      @media only screen and (max-height: 600px) {
+        height: 350px;
+      }
+
+      &-slide {
+        height: auto;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+
+        background-color: #fff;
+        background-repeat: no-repeat;
+        background-position: right;
+        background-size: contain;
+
+        @include tablet {
+          background-position: right bottom;
+          background-size: 50%;
+        }
+      }
+
+      &-pagination {
+        left: 1rem;
+        text-align: start;
+
+        @include mobile {
+          bottom: var(--swiper-pagination-bottom, 0);
+        }
+
+        &-bullet {
+          width: 35px;
+          height: 8px;
+          border-radius: 3px;
+          background: #111;
+        }
+        &-bullet-active {
+          background: var(--dark-red-cl);
+        }
+      }
+
+      &__titles {
+        max-width: 800px;
+        height: auto;
+        padding-block: 3rem;
+        padding-left: 1rem;
+        color: var(--txt-cl);
+        cursor: auto;
+
+        @include tablet {
+          max-width: 400px;
+        }
+        @include mobile {
+          max-width: 300px;
+        }
+
+        .title {
+          font-weight: 600;
+          font-size: 78px;
+          margin-bottom: 1rem;
+
+          @include tablet {
+            font-size: 52px;
+          }
+          @include mobile {
+            font-size: 34px;
+          }
+        }
+        .desc {
+          font-size: 32px;
+          line-height: 1.4;
+          margin-bottom: 2rem;
+
+          @include phone {
+            font-size: 16px;
+          }
+        }
+
+        .btn {
+          font-size: 18px;
+          padding: 8px 1rem;
+          border-radius: 30px;
+
+          &:hover {
+            color: var(--txt-cl);
+          }
+
+          @include mobile {
+            font-size: 16px;
+          }
+        }
+      }
+    }
+  }
+}

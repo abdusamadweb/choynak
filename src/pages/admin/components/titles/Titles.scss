@@ -1,0 +1,25 @@
+@use "src/scss" as *;
+
+.admin-titles {
+  padding-block: 1rem;
+  color: #fff;
+  background: var(--admin-cl);
+
+  .title {
+    font-weight: 500;
+    font-size: 24px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .icons {
+    i {
+      margin-right: 6px;
+      color: #fff;
+    }
+
+    span {
+      text-transform: capitalize;
+    }
+  }
+}

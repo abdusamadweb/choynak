@@ -1,0 +1,68 @@
+@use "src/scss" as *;
+
+.header-top {
+  position: relative;
+  padding-block: 1.5rem;
+  color: #fff;
+  background: var(--admin-cl);
+  z-index: 6;
+
+  @include mobile {
+    display: none;
+  }
+
+  .header__inner {
+    @include breakpoint-down(750px) {
+      flex-flow: column-reverse;
+    }
+  }
+
+  .socials {
+    gap: 2rem;
+
+    .fa-square-phone {
+      font-size: 32px;
+    }
+    .tel {
+      font-size: 28px;
+      color: #fff;
+    }
+
+    &__links {
+      .link i {
+        font-size: 24px;
+        color: #fff;
+      }
+    }
+
+    @include tablet {
+      gap: 1rem;
+
+      .fa-square-phone {
+        font-size: 18px;
+      }
+      .tel {
+        font-size: 18px;
+      }
+
+      .link i {
+        font-size: 20px;
+      }
+    }
+  }
+
+  .account {
+    .lang {
+      width: 30px;
+      height: 15px;
+    }
+    
+    .profile {
+      gap: 10px;
+      padding: 4px 10px;
+      border-radius: 5px;
+      color: var(--admin-cl);
+      background: #fff;
+    }
+  }
+}

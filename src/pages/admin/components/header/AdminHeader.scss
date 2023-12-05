@@ -1,0 +1,147 @@
+@use "src/scss" as *;
+
+.admin-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 100vh;
+  padding-block: 96px 1rem;
+  border-right: 1px solid #eee;
+  background: #fff;
+  z-index: 5;
+
+  &.d-none {
+    display: none !important;
+  }
+
+  @include breakpoint-down(750px) {
+    padding-top: 140px;
+  }
+  @include mobile {
+    position: relative;
+    width: 100%;
+    height: unset;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    box-shadow: 0 5px 15px -3px rgba(0, 0, 0, 0.1);
+  }
+
+  .logo {
+    display: block;
+    margin: 0 auto 1rem;
+
+    @include mobile {
+      margin: 0;
+    }
+  }
+
+  .header__lang {
+    display: none;
+
+    @include mobile {
+      display: block;
+    }
+  }
+  .header__burger {
+    display: none;
+
+    @include mobile {
+      display: block;
+    }
+  }
+  .x-mark {
+    width: 25px;
+    display: none;
+
+    @include mobile {
+      display: block;
+    }
+  }
+
+  .nav {
+    transition: right 0.4s ease;
+
+    &.open {
+      right: 0;
+    }
+
+    @include mobile {
+      position: absolute;
+      top: 105%;
+      right: -101%;
+      width: 100%;
+      min-height: 100vh;
+      background: var(--body-bg);
+    }
+
+    .item {
+
+      &__link {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 8px 1rem;
+        border-bottom: 1px solid #eee;
+        color: var(--txt-cl);
+
+        @include mobile {
+          font-size: 20px;
+          padding-block: 1rem;
+
+          &:hover {
+            color: #fff;
+            background: var(--admin-cl);
+
+            i {
+              color: #fff;
+            }
+          }
+        }
+
+        &.active {
+          color: var(--admin-cl);
+
+          i {
+            color: var(--admin-cl);
+          }
+
+          @include mobile {
+            color: #fff;
+            background: var(--admin-cl);
+
+            i {
+              color: #fff;
+            }
+          }
+        }
+
+        i {
+          min-width: 20px;
+          color: var(--txt-cl);
+        }
+      }
+    }
+  }
+
+  .btns {
+    display: none;
+    margin-top: 1rem;
+
+    @include mobile {
+      display: block;
+    }
+
+    .profile {
+      gap: 10px;
+      padding: 12px 1rem;
+      margin: 0 auto 12px;
+      border-radius: 5px;
+      color: #fff;
+      background: var(--main-cl);
+    }
+  }
+}

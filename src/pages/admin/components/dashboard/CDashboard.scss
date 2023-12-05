@@ -1,0 +1,132 @@
+@use "src/scss" as *;
+
+.c-dashboard {
+  padding-block: 1rem;
+
+  .container {
+    padding-inline: 1rem;
+  }
+
+  .head {
+    position: relative;
+    margin-bottom: 4rem;
+    border-radius: 15px;
+    background: #E5F8FF;
+
+    @include breakpoint-down(750px) {
+      margin-bottom: 2rem;
+    }
+
+    &__titles {
+      padding: 2rem 10px 2rem 2rem;
+
+      .title {
+        font-weight: 500;
+        font-size: 20px;
+        margin-bottom: 10px;
+      }
+
+      .desc {
+        opacity: 0.8;
+      }
+    }
+
+    &__bg {
+      position: absolute;
+      top: 45%;
+      left: 60%;
+      transform: translate(-50%, -50%);
+
+      width: 250px;
+      height: 200px;
+
+      @include tablet {
+        display: none;
+      }
+    }
+    &__img {
+      width: 150px;
+      object-fit: contain;
+
+      @include breakpoint-down(750px) {
+        display: none;
+      }
+    }
+  }
+
+  .body {
+    max-width: 900px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin: 0 auto;
+
+    &__card {
+      height: 20vw;
+      display: flex;
+      flex-flow: column;
+      justify-content: center;
+      align-items: start;
+      padding: 1rem 2rem;
+      border-radius: 20px;
+      color: #fff;
+
+      background: rgb(134,22,22);
+      background: linear-gradient(345deg,
+      rgba(134,22,22,1) 32%,
+      rgba(255,0,0,1) 100%);
+
+      &.card2 {
+        background: rgb(22,39,116);
+        background: linear-gradient(345deg,
+        rgba(22,39,116,1) 32%,
+        rgba(0,172,255,1) 100%);
+      }
+
+      i {
+        font-size: 34px;
+        color: #fff;
+      }
+      span {
+        font-size: 30px;
+      }
+
+      .num {
+        font-size: 60px;
+      }
+    }
+
+    @include tablet {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+
+      &__card {
+        height: 250px;
+      }
+    }
+
+    .wrapper {
+
+      .desc {
+        font-size: 24px;
+        margin-bottom: 1rem;
+      }
+
+
+      .inp {
+        margin-bottom: 1rem;
+
+        &:focus {
+          border-color: var(--main-cl);
+        }
+      }
+
+      .btnn {
+        padding: 10px 12px;
+        border-radius: 10px;
+        color: #fff;
+        background: #01A6F9;
+      }
+    }
+  }
+}
