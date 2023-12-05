@@ -71,7 +71,7 @@ const Registre = () => {
 
         formData.append('passportSerie', passportSerie)
         formData.append('passportNumber', passportNumber)
-        formData.append('passportFile', JSON?.stringify(passportFile))
+        formData.append('passportFile', JSON?.stringify([passportFile?.id]))
 
         formData.append('phoneNumber', phoneNumber)
         formData.append('email', email)
@@ -360,9 +360,12 @@ const Registre = () => {
                                 placeholder='Sponsors full name:'
                                 onChange={(e) => setSFullName(e.target.value)}
                             />
-                            <MySelect className='inp' setValue={setSKinship}>
-                                <option value="">Kinship:</option>
-                            </MySelect>
+                            <input
+                                className='inp'
+                                type="text"
+                                placeholder='Kinship:'
+                                onChange={(e) => setSKinship(e.target.value)}
+                            />
                             <input
                                 className='inp'
                                 type=" text"
