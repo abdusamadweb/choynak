@@ -48,7 +48,7 @@ const StudentForm = ({ setEffect }) => {
 
         formData.append('passportSerie', passportSerie)
         formData.append('passportNumber', passportNumber)
-        formData.append('passportFile', JSON?.stringify(passportFile))
+        formData.append('passportFile', [passportFile])
 
         formData.append('phoneNumber', phoneNumber)
         formData.append('email', email)
@@ -76,7 +76,7 @@ const StudentForm = ({ setEffect }) => {
                     Authorization: 'Bearer Tad216tIaccvhAKVAd5TYssnZqM63IUBVwNiHFUM'
                 }
             })
-            .then(res => {
+            .then(() => {
                 toast.success('Success!')
                 setEffect(prev => !prev)
             })
