@@ -3,6 +3,7 @@ import {useLocation} from "react-router-dom";
 import {lang} from "../../../assets/scripts/global";
 import $api from "../../../api/apiConfig";
 import {toast} from "react-hot-toast";
+import {postAttachment} from "../../../api/apiResp";
 
 const Registre = ({ univer, title, inpTitle, inpPlaceholder }) => {
 
