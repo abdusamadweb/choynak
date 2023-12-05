@@ -9,7 +9,7 @@ import Benefit from "../../components/benefit/Benefit";
 const FStudents = () => {
     return (
         <div className='fstudents'>
-            <Benefit />
+            <Benefit role='student' />
             <Calculator />
             <StudentUniversities />
             <Registre />

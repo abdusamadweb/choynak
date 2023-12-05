@@ -4,17 +4,17 @@ import $api from "../../api/apiConfig";
 import LangText from "../lang/LangText";
 import LoadImg from "../load-img/LoadImg";
 
-const Benefit = () => {
+const Benefit = ({ role }) => {
 
 
     const [result, setResult] = useState([])
     useEffect(() => {
         $api
-            .get('/statistika')
+            .get(`/statistika-${role}`)
             .then(res => {
                 setResult(res.data)
             })
-    }, [])
+    }, [role])
 
 
     return (

@@ -7,7 +7,7 @@ import Faq from "../../components/faq/Faq";
 const FUniversities = () => {
     return (
         <div className='fConsults'>
-            <Benefit />
+            <Benefit role='university' />
             <Registre
                 univer={true}
                 title={lang === 'ru' ? 'Регистрационная форма университета' : 'University registration form'}

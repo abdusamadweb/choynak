@@ -8,7 +8,7 @@ import {lang} from "../../assets/scripts/global";
 const FConsults = () => {
     return (
         <div className='fConsults'>
-            <Benefit />
+            <Benefit role='consult' />
             <Registre
                 univer={false}
                 title={lang === 'ru' ? 'Регистрационная форма консультанта' : 'Consult registration form'}
