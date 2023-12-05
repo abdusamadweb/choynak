@@ -5,7 +5,6 @@ import StudentUniversities from "../../components/universities/StudentUniversiti
 import Registre from "./registre/Registre";
 import Faq from "../../components/faq/Faq";
 import Benefit from "../../components/benefit/Benefit";
-import LoadImg from "../../components/load-img/LoadImg";
 
 const FStudents = () => {
     return (

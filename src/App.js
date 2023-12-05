@@ -23,7 +23,6 @@ import MyStudentsConsult from "./pages/admin/my-students-consult/MyStudentsConsu
 import Balance from "./pages/admin/balance/Balance";
 import MyApplications from "./pages/admin/my-applications/MyApplications";
 import SignIn from "./pages/sign/sign-in/SignIn";
-import SignUp from "./pages/sign/sign-up/SignUp";
 import {Toaster} from "react-hot-toast";
 import $api from "./api/apiConfig";
 import FUniversities from "./pages/for-universities/FUniversities";
