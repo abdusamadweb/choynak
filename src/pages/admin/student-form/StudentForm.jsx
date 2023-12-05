@@ -48,7 +48,7 @@ const StudentForm = ({ setEffect }) => {
 
         formData.append('passportSerie', passportSerie)
         formData.append('passportNumber', passportNumber)
-        formData.append('passportFile', '1')
+        formData.append('passportFile', [passportFile])
 
         formData.append('phoneNumber', phoneNumber)
         formData.append('email', email)

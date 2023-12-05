@@ -71,7 +71,7 @@ const Registre = () => {
 
         formData.append('passportSerie', passportSerie)
         formData.append('passportNumber', passportNumber)
-        formData.append('passportFile', passportFile)
+        formData.append('passportFile', JSON?.stringify(passportFile))
 
         formData.append('phoneNumber', phoneNumber)
         formData.append('email', email)
