@@ -81,16 +81,16 @@ const Registre = () => {
 
         formData.append('education', education)
         formData.append('yearGraduation', yearGraduation)
-        formData.append('educationFile', educationFile)
+        formData.append('educationFile', JSON?.stringify(educationFile))
 
         formData.append('langCert', langCert)
         formData.append('levelCert', levelCert)
         formData.append('yearCert', yearCert)
-        formData.append('fileCert', fileCert)
+        formData.append('fileCert', JSON?.stringify(fileCert))
 
-        formData.append('photo', photo)
-        formData.append('cv', cv)
-        formData.append('otherDocs', otherDocs)
+        formData.append('photo', JSON?.stringify(photo))
+        formData.append('cv', JSON?.stringify(cv))
+        formData.append('otherDocs', JSON?.stringify(otherDocs))
 
         formData.append('sponsorFullName', sFullName)
         formData.append('kinship', sKinship)
