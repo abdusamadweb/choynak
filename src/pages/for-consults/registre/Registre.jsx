@@ -30,7 +30,7 @@ const Registre = ({ univer, title, inpTitle, inpPlaceholder }) => {
         e.preventDefault()
 
         const formData = new FormData()
-        formData.append('passportFile', JSON?.stringify([passportFile?.id]))
+        formData.append('passportFile', JSON?.stringify(passportFile))
         formData.append('companyName', companyName)
         formData.append('fullName', name)
         formData.append('password', password)
