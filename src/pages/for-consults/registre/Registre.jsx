@@ -30,7 +30,7 @@ const Registre = ({ univer, title, inpTitle, inpPlaceholder }) => {
         e.preventDefault()
 
         const formData = new FormData()
-        passportFile.forEach(item => {
+        [passportFile]?.forEach(item => {
             formData.append('passportFile', item)
         })
         formData.append('companyName', companyName)
