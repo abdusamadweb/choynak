@@ -7,6 +7,9 @@ import {toast} from "react-hot-toast";
 const Registre = ({ univer, title, inpTitle, inpPlaceholder }) => {
 
 
+    const [passportFile, setPassportFile] = useState(null)
+    const [passportFileName, setPassportFileName] = useState('')
+
     const [companyName, setCompanyName] = useState('')
     const [name, setName] = useState('')
     const [password, setPassword] = useState('')
@@ -26,6 +29,7 @@ const Registre = ({ univer, title, inpTitle, inpPlaceholder }) => {
         e.preventDefault()
 
         const formData = new FormData()
+        formData.append('passportFile', JSON?.stringify([passportFile?.id]))
         formData.append('companyName', companyName)
         formData.append('fullName', name)
         formData.append('password', password)
@@ -69,6 +73,14 @@ const Registre = ({ univer, title, inpTitle, inpPlaceholder }) => {
     }, [location])
 
 
+    // files
+    const sendPassportFile = async (files) => {
+        const res = await postAttachment('/project-media/upload', files)
+        setPassportFile(res)
+        setPassportFileName(res?.file_name)
+    }
+
+
     return (
         <div className='reg' id='form'>
             <div className="container">
@@ -77,6 +89,14 @@ const Registre = ({ univer, title, inpTitle, inpPlaceholder }) => {
                     <div>
                         <span className='txt'>{ inpTitle }:</span>
                         <div className='form__wrapper'>
+                            <label>
+                                <input
+                                    className='inp file'
+                                    type="file"
+                                    onChange={(e) => sendPassportFile(e.target.files)}
+                                />
+                                <span className='inp inp-file'>{ passportFileName || 'Upload a file (.jpg, .pdf up to 5 MB)' }</span>
+                            </label>
                             <input
                                 className='inp'
                                 type="text"
