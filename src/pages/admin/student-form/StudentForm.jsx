@@ -48,7 +48,7 @@ const StudentForm = ({ setEffect }) => {
 
         formData.append('passportSerie', passportSerie)
         formData.append('passportNumber', passportNumber)
-        formData.append('passportFile', passportFile)
+        formData.append('passportFile', JSON?.stringify(passportFile))
 
         formData.append('phoneNumber', phoneNumber)
         formData.append('email', email)
@@ -72,7 +72,7 @@ const StudentForm = ({ setEffect }) => {
         $api
             .post(`/application-for-student/update/${me?.id}`, formData, {
                 headers: {
-                    'Content-Type': 'application/json',
+                    "Content-Type": 'application/x-www-form-urlencoded',
                     Authorization: 'Bearer Tad216tIaccvhAKVAd5TYssnZqM63IUBVwNiHFUM'
                 }
             })
