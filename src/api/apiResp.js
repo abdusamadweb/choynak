@@ -19,9 +19,10 @@ export const $resp = axios.create({
 export const postAttachment = (url, files) => {
     const toastId = toast.loading('Uploading . . .')
 
+    console.log(files)
     const file = files[0]
     const formData = new FormData()
-    formData.append('file', file, 'path_to_file')
+    formData.append('file', file)
 
     return $resp
         .post(url, formData, {

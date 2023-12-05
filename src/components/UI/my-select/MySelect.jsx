@@ -8,7 +8,6 @@ const MySelect = ({ value, setValue, disabled, className, children }) => {
                 <select
                     id="slct"
                     className={className}
-                    required={true}
                     disabled={disabled}
                     value={value}
                     onChange={(e) => setValue(e.target.value)}
