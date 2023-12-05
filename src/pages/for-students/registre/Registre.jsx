@@ -99,7 +99,7 @@ const Registre = () => {
         $api
             .post('application-for-student', formData, {
                 headers: {
-                    'Content-Type': 'application/json',
+                    "Content-Type": 'application/x-www-form-urlencoded',
                     Authorization: 'Bearer Tad216tIaccvhAKVAd5TYssnZqM63IUBVwNiHFUM'
                 }
             })

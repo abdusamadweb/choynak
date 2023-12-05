@@ -22,7 +22,7 @@ export const postAttachment = (url, files) => {
     console.log(files)
     const file = files[0]
     const formData = new FormData()
-    formData.append('file', file)
+    formData.append('file', file, file?.name)
 
     return $resp
         .post(url, formData, {
