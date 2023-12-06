@@ -80,8 +80,8 @@ const UniCoun = ({
     }, [])
 
     useEffect(() => {
-        setProgram(programs?.[0]?.name)
-        setProgramName(programs?.[0]?.programPrices?.[0]?.name)
+        setProgram(programs?.[0]?.id)
+        setProgramName(programs?.[0]?.programPrices?.[0]?.id)
     }, [programs])
 
 
@@ -91,7 +91,7 @@ const UniCoun = ({
         $api
             .get(`/university?whereRelation[country][name]=${id}`)
             .then(res => setRanks(res.data))
-    }, [title])
+    }, [id, title])
 
 
     return (
@@ -174,7 +174,7 @@ const UniCoun = ({
                                                     className={`navs__btn ${navActive === num ? 'active' : ''}`}
                                                     onClick={() => {
                                                         setNavActive(num)
-                                                        setProgram(i.name)
+                                                        setProgram(i.id)
                                                     }}
                                                 >
                                                     { i.name }
@@ -186,8 +186,8 @@ const UniCoun = ({
                                         {
                                             programs[navActive]?.programPrices?.map(i => (
                                                 <li
-                                                    className={`list__item ${programName === i.name ? 'active' : ''}`}
-                                                    onClick={() => setProgramName(i.name)}
+                                                    className={`list__item ${programName === i.id ? 'active' : ''}`}
+                                                    onClick={() => setProgramName(i.id)}
                                                 >
                                                     <span className='name'>{ i.name }</span>
                                                     <span className='price'>$ { i.price }</span>
