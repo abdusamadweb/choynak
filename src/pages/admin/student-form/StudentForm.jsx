@@ -115,8 +115,8 @@ const StudentForm = ({ setEffect }) => {
 
     // format url
     const extractFileName = (url) => {
-        const match = url.match(/\/([^\/]+)$/)
-        return match ? match[1] : ''
+        const match = url?.match(/\/([^\/]+)$/)
+        return match ? match?.[1] : ''
     }
 
 
