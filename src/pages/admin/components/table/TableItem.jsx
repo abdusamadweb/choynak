@@ -16,15 +16,20 @@ const TableItem = ({ i, num, setEffect }) => {
     const [programName, setProgramName] = useState('')
 
     useEffect(() => {
-        setUniver(i?.university?.name)
-        setProgram(i?.program?.name)
-        setProgramName(i?.programName?.name)
-    }, [i?.program?.name, i?.programName?.name, i?.university?.name])
+        setUniver(i?.university?.id)
+        setProgram(i?.program?.id)
+        setProgramName(i?.programName?.id)
+    }, [i?.program?.id, i?.programName?.id, i?.university?.id])
 
 
     //edit
     const editItem = (id) => {
         const formData = new FormData()
+        formData.append('fullName', i.fullName)
+        formData.append('phoneNumber', i.phoneNumber)
+        formData.append('email', i.email)
+        formData.append('confirm', i.confirm)
+
         formData.append('university', univer)
         formData.append('program', program)
         formData.append('programName', programName)
