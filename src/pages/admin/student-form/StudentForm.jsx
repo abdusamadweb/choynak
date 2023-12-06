@@ -10,7 +10,7 @@ const StudentForm = ({ setEffect }) => {
 
     const [fName, setFName] = useState(me.firstName || '')
     const [sName, setSName] = useState(me.secondName || '')
-    const [date, setDate] = useState(me.brithDate || '')
+    const [date, setDate] = useState(me.birthDate || '')
 
     const [passportSerie, setPassportSerie] = useState(me.passportSerie || '')
     const [passportNumber, setPassportNumber] = useState(me.passportNumber || '')
@@ -28,7 +28,7 @@ const StudentForm = ({ setEffect }) => {
     const [educationFile, setEducationFile] = useState(me.educationFile || '')
     const [educationFileName, setEducationFileName] = useState(me.educationFile || '')
 
-    const [langCert, setLangCert] = useState(me.languageCert || '')
+    const [langCert, setLangCert] = useState(me.langCert || '')
     const [levelCert, setLevelCert] = useState(me.levelCert || '')
     const [yearCert, setYearCert] = useState(me.yearCert || '')
     const [fileCert, setFileCert] = useState(me.fileCert || '')
