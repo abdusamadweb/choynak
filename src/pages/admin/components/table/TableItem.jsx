@@ -28,7 +28,7 @@ const TableItem = ({ i, num, setEffect }) => {
         formData.append('fullName', i.fullName)
         formData.append('phoneNumber', i.phoneNumber)
         formData.append('email', i.email)
-        formData.append('confirm', i.confirm)
+        formData.append('confirm', i?.confirm)
 
         formData.append('university', univer)
         formData.append('program', program)
@@ -80,7 +80,7 @@ const TableItem = ({ i, num, setEffect }) => {
     }, [])
     useEffect(() => {
         $api
-            .get(`/program?where[name]=${program}`)
+            .get(`/program?where[id]=${program}`)
             .then(res => setProgramsActive(res.data?.length > 0 ? res.data?.[0] : programs?.[0]?.programPrices))
     }, [program, programs])
 
@@ -134,7 +134,7 @@ const TableItem = ({ i, num, setEffect }) => {
                             >
                                 {
                                     universities?.map((i, num) => (
-                                        <option value={i.name} key={num}>{ i.name }</option>
+                                        <option value={i.id} key={num}>{ i.name }</option>
                                     ))
                                 }
                             </MySelect>
@@ -149,7 +149,7 @@ const TableItem = ({ i, num, setEffect }) => {
                             >
                                 {
                                     programs?.map((i, num) => (
-                                        <option value={i.name} key={num}>{ i.name }</option>
+                                        <option value={i.id} key={num}>{ i.name }</option>
                                     ))
                                 }
                             </MySelect>
@@ -163,7 +163,7 @@ const TableItem = ({ i, num, setEffect }) => {
                             >
                                 {
                                     programsActive?.programPrices?.map((i, num) => (
-                                        <option value={i.name} key={num}>{ i.name }</option>
+                                        <option value={i.id} key={num}>{ i.name }</option>
                                     ))
                                 }
                             </MySelect>
