@@ -33,6 +33,7 @@ const StudentForm = ({ setEffect }) => {
     const [yearCert, setYearCert] = useState(me.yearCert || '')
     const [fileCert, setFileCert] = useState(me.fileCert || '')
     const [fileCertName, setFileCertName] = useState(me.fileCert || '')
+    console.log(me)
 
     const [sFullName, setSFullName] = useState(me?.sponsorFullName || '')
     const [sKinship, setSKinship] = useState(me?.kinship || '')
