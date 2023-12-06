@@ -45,7 +45,7 @@ const StudentForm = ({ setEffect }) => {
         const formData = new FormData()
         formData.append('firstName', fName)
         formData.append('secondName', sName)
-        formData.append('birthDate', date)
+        formData.append('brithDate', date)
 
         formData.append('passportSerie', passportSerie)
         formData.append('passportNumber', passportNumber)
@@ -61,7 +61,7 @@ const StudentForm = ({ setEffect }) => {
         formData.append('yearGraduation', yearGraduation)
         formData.append('educationFile', educationFile?.full_url)
 
-        formData.append('langCert', langCert)
+        formData.append('languageCert', langCert)
         formData.append('levelCert', levelCert)
         formData.append('yearCert', yearCert)
         formData.append('fileCert', fileCert?.full_url)
@@ -81,8 +81,10 @@ const StudentForm = ({ setEffect }) => {
                     Authorization: 'Bearer Tad216tIaccvhAKVAd5TYssnZqM63IUBVwNiHFUM'
                 }
             })
-            .then(() => {
+            .then(res => {
                 toast.success('Success!')
+                console.log(res)
+                localStorage.setItem('me', JSON?.stringify(res.data))
                 setEffect(prev => !prev)
             })
             .catch(err => {
@@ -96,20 +98,20 @@ const StudentForm = ({ setEffect }) => {
     const sendPassportFile = async (files) => {
         const res = await postAttachment('/project-media/upload', files)
         setPassportFile(res)
-        setPassportFileName(res?.file_name)
+        setPassportFileName(res?.full_url)
         console.log(passportFileName)
     }
 
     const sendEducationFile = async (files) => {
         const res = await postAttachment('/project-media/upload', files)
         setEducationFile(res)
-        setEducationFileName(res?.file_name)
+        setEducationFileName(res?.full_url)
     }
 
     const sendFileCert = async (files) => {
         const res = await postAttachment('/project-media/upload', files)
         setFileCert(res)
-        setFileCertName(res?.file_name)
+        setFileCertName(res?.full_url)
     }
 
     // format url

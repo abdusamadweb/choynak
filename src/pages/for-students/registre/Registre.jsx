@@ -83,7 +83,7 @@ const Registre = () => {
         formData.append('yearGraduation', yearGraduation)
         formData.append('educationFile', educationFile?.full_url)
 
-        formData.append('langCert', langCert)
+        formData.append('languageCert', langCert)
         formData.append('levelCert', levelCert)
         formData.append('yearCert', yearCert)
         formData.append('fileCert', fileCert?.full_url)
