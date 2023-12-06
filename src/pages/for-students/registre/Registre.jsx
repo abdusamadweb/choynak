@@ -88,9 +88,9 @@ const Registre = () => {
         formData.append('yearCert', yearCert)
         formData.append('fileCert', fileCert?.full_url)
 
-        formData.append('photo', photo)
-        formData.append('cv', cv)
-        formData.append('otherDocs', otherDocs)
+        formData.append('photo', photo?.full_url)
+        formData.append('cv', cv?.full_url)
+        formData.append('otherDocs', otherDocs?.full_url)
 
         formData.append('sponsorFullName', sFullName)
         formData.append('kinship', sKinship)

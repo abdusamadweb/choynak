@@ -14,8 +14,8 @@ const StudentForm = ({ setEffect }) => {
 
     const [passportSerie, setPassportSerie] = useState(me.passportSerie || '')
     const [passportNumber, setPassportNumber] = useState(me.passportNumber || '')
-    const [passportFile, setPassportFile] = useState(me.passportFile?.id || '')
-    const [passportFileName, setPassportFileName] = useState(me.passportFile?.file_name || '')
+    const [passportFile, setPassportFile] = useState(me.passportFile || '')
+    const [passportFileName, setPassportFileName] = useState(me.passportFile || '')
 
     const [phoneNumber, setPhoneNumber] = useState(me.phoneNumber || '')
     const [email, setEmail] = useState(me.email || '')
@@ -25,14 +25,14 @@ const StudentForm = ({ setEffect }) => {
 
     const [education, setEducation] = useState(me.education || '')
     const [yearGraduation, setYearGraduation] = useState(me.yearGraduation || '')
-    const [educationFile, setEducationFile] = useState(me.educationFile?.id || '')
-    const [educationFileName, setEducationFileName] = useState(me.educationFile?.file_name || '')
+    const [educationFile, setEducationFile] = useState(me.educationFile || '')
+    const [educationFileName, setEducationFileName] = useState(me.educationFile || '')
 
     const [langCert, setLangCert] = useState(me.languageCert || '')
     const [levelCert, setLevelCert] = useState(me.levelCert || '')
     const [yearCert, setYearCert] = useState(me.yearCert || '')
-    const [fileCert, setFileCert] = useState(me.fileCert?.id || '')
-    const [fileCertName, setFileCertName] = useState(me.fileCert?.file_name || '')
+    const [fileCert, setFileCert] = useState(me.fileCert || '')
+    const [fileCertName, setFileCertName] = useState(me.fileCert || '')
 
     const [sFullName, setSFullName] = useState(me?.sponsorFullName || '')
     const [sKinship, setSKinship] = useState(me?.kinship || '')
@@ -48,7 +48,7 @@ const StudentForm = ({ setEffect }) => {
 
         formData.append('passportSerie', passportSerie)
         formData.append('passportNumber', passportNumber)
-        formData.append('passportFile', [passportFile])
+        formData.append('passportFile', passportFile?.full_url)
 
         formData.append('phoneNumber', phoneNumber)
         formData.append('email', email)
@@ -58,12 +58,12 @@ const StudentForm = ({ setEffect }) => {
 
         formData.append('education', education)
         formData.append('yearGraduation', yearGraduation)
-        formData.append('educationFile', educationFile)
+        formData.append('educationFile', educationFile?.full_url)
 
         formData.append('langCert', langCert)
         formData.append('levelCert', levelCert)
         formData.append('yearCert', yearCert)
-        formData.append('fileCert', fileCert)
+        formData.append('fileCert', fileCert?.full_url)
 
         formData.append('photo', me?.photo)
         formData.append('cv', me?.cv)
@@ -109,6 +109,12 @@ const StudentForm = ({ setEffect }) => {
         const res = await postAttachment('/project-media/upload', files)
         setFileCert(res)
         setFileCertName(res?.file_name)
+    }
+
+    // format url
+    const extractFileName = (url) => {
+        const match = url.match(/\/([^\/]+)$/)
+        return match ? match[1] : ''
     }
 
 
@@ -166,7 +172,7 @@ const StudentForm = ({ setEffect }) => {
                         filename={passportFile}
                         onChange={(e) => sendPassportFile(e.target.files)}
                     />
-                    <span>{ passportFileName || 'Select file' }</span>
+                    <span>{ extractFileName(passportFileName) || 'Select file' }</span>
                 </label>
 
                 <input
@@ -235,7 +241,7 @@ const StudentForm = ({ setEffect }) => {
                         filename={educationFile}
                         onChange={(e) => sendEducationFile(e.target.files)}
                     />
-                    <span>{ educationFileName || 'Select file' }</span>
+                    <span>{ extractFileName(educationFileName) || 'Select file' }</span>
                 </label>
 
                 <input
@@ -271,7 +277,7 @@ const StudentForm = ({ setEffect }) => {
                         filename={fileCert}
                         onChange={(e) => sendFileCert(e.target.files)}
                     />
-                    <span>{ fileCertName || 'Select file' }</span>
+                    <span>{ extractFileName(fileCertName) || 'Select file' }</span>
                 </label>
 
                 <input
