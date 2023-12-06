@@ -33,8 +33,6 @@ const StudentForm = ({ setEffect }) => {
     const [yearCert, setYearCert] = useState(me.yearCert || '')
     const [fileCert, setFileCert] = useState(me.fileCert || '')
     const [fileCertName, setFileCertName] = useState(me.fileCert || '')
-    console.log(fileCert)
-    console.log(me)
 
     const [sFullName, setSFullName] = useState(me?.sponsorFullName || '')
     const [sKinship, setSKinship] = useState(me?.kinship || '')
@@ -50,7 +48,8 @@ const StudentForm = ({ setEffect }) => {
 
         formData.append('passportSerie', passportSerie)
         formData.append('passportNumber', passportNumber)
-        formData.append('passportFile', passportFile?.full_url)
+        formData.append('passportFile', passportFile)
+        console.log(passportFile , 'in')
 
         formData.append('phoneNumber', phoneNumber)
         formData.append('email', email)
@@ -60,12 +59,12 @@ const StudentForm = ({ setEffect }) => {
 
         formData.append('education', education)
         formData.append('yearGraduation', yearGraduation)
-        formData.append('educationFile', educationFile?.full_url)
+        formData.append('educationFile', educationFile)
 
         formData.append('languageCert', langCert)
         formData.append('levelCert', levelCert)
         formData.append('yearCert', yearCert)
-        formData.append('fileCert', fileCert?.full_url)
+        formData.append('fileCert', fileCert)
 
         formData.append('photo', me?.photo)
         formData.append('cv', me?.cv)
@@ -97,20 +96,20 @@ const StudentForm = ({ setEffect }) => {
     // files
     const sendPassportFile = async (files) => {
         const res = await postAttachment('/project-media/upload', files)
-        setPassportFile(res)
+        setPassportFile(res?.full_url)
         setPassportFileName(res?.full_url)
         console.log(passportFileName)
     }
 
     const sendEducationFile = async (files) => {
         const res = await postAttachment('/project-media/upload', files)
-        setEducationFile(res)
+        setEducationFile(res?.full_url)
         setEducationFileName(res?.full_url)
     }
 
     const sendFileCert = async (files) => {
         const res = await postAttachment('/project-media/upload', files)
-        setFileCert(res)
+        setFileCert(res?.full_url)
         setFileCertName(res?.full_url)
     }
 
