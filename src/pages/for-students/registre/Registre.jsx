@@ -71,7 +71,7 @@ const Registre = () => {
 
         formData.append('passportSerie', passportSerie)
         formData.append('passportNumber', passportNumber)
-        formData.append('passportFile', JSON?.stringify([passportFile?.id]))
+        formData.append('passportFile', passportFile?.full_url)
 
         formData.append('phoneNumber', phoneNumber)
         formData.append('email', email)
@@ -81,16 +81,16 @@ const Registre = () => {
 
         formData.append('education', education)
         formData.append('yearGraduation', yearGraduation)
-        formData.append('educationFile', JSON?.stringify(educationFile))
+        formData.append('educationFile', educationFile?.full_url)
 
         formData.append('langCert', langCert)
         formData.append('levelCert', levelCert)
         formData.append('yearCert', yearCert)
-        formData.append('fileCert', JSON?.stringify(fileCert))
+        formData.append('fileCert', fileCert?.full_url)
 
-        formData.append('photo', JSON?.stringify(photo))
-        formData.append('cv', JSON?.stringify(cv))
-        formData.append('otherDocs', JSON?.stringify(otherDocs))
+        formData.append('photo', photo)
+        formData.append('cv', cv)
+        formData.append('otherDocs', otherDocs)
 
         formData.append('sponsorFullName', sFullName)
         formData.append('kinship', sKinship)

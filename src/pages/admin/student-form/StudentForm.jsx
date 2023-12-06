@@ -65,6 +65,10 @@ const StudentForm = ({ setEffect }) => {
         formData.append('yearCert', yearCert)
         formData.append('fileCert', fileCert)
 
+        formData.append('photo', me?.photo)
+        formData.append('cv', me?.cv)
+        formData.append('otherDocs', me?.otherDocs)
+
         formData.append('sponsorFullName', sFullName)
         formData.append('kinship', sKinship)
         formData.append('sponsorPhoneNumber', sPhoneNumber)
