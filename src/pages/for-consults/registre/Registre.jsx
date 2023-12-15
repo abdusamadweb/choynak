@@ -58,6 +58,19 @@ const Registre = ({ univer, title, inpTitle, inpPlaceholder }) => {
             .catch(err => {
                 toast.error(err?.response?.data?.message)
             })
+
+
+        // google sheets
+        const formData2 = new FormData()
+        formData2.append('Name', name)
+        formData2.append('Email', email)
+        formData2.append('Message', companyName)
+
+        $api
+            .post('https://script.google.com/macros/s/AKfycbx23CivUNIMv0mnJMLiCBAxaBiBDDg2F0tbqIjRIn06p083yuosoknGQXrPm6okoCtTDQ/exec', formData2)
+            .then(res => {
+                console.log(res)
+            })
     }
 
 
