@@ -109,6 +109,37 @@ const Registre = () => {
             .catch(err => {
                 toast.error(err?.response?.data?.message)
             })
+
+
+        // google sheets
+        const formData2 = new FormData()
+        formData2.append('FirstName', fName)
+        formData2.append('LastName', sName)
+        formData2.append('BirtDate', date)
+        formData2.append('PhoneNumber', phoneNumber)
+        formData2.append('Email', email)
+        formData2.append('Country', country)
+        formData2.append('City', city)
+        formData2.append('Street', street)
+        formData2.append('PassportSerie', passportSerie)
+        formData2.append('PassportNumber', passportNumber)
+        formData2.append('PassportFile', passportFile)
+        formData2.append('Education', education)
+        formData2.append('YearGraduation', yearGraduation)
+        formData2.append('EducationFile', educationFile)
+        formData2.append('LanguageCert', langCert)
+        formData2.append('LevelCert', levelCert)
+        formData2.append('YearCert', yearCert)
+        formData2.append('FileCert', fileCert)
+        formData2.append('Photo', photo)
+        formData2.append('Cv', cv)
+        formData2.append('OtherFiles', otherDocs)
+        formData2.append('SponsorFullName', sFullName)
+        formData2.append('Kinship', sKinship)
+        formData2.append('SponsorPhoneNumber', sPhoneNumber)
+
+        $api
+            .post('https://script.google.com/macros/s/AKfycbzfrtcKnX9je5-XbXW4ziOoHHVE98y7NukY5d08Ir67PksVFiDn9R8grSr0WPAQggyWwQ/exec', formData2)
     }
 
 
@@ -261,6 +292,9 @@ const Registre = () => {
                         <div className='form__wrapper'>
                             <MySelect className='inp' setValue={setEducation}>
                                 <option value="">Select from list:</option>
+                                <option value="formal">Formal</option>
+                                <option value="informal">Informal</option>
+                                <option value="non-formal">Non-formal</option>
                             </MySelect>
                             <input
                                 className='inp'

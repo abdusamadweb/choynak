@@ -1,9 +1,8 @@
 import React, {useEffect, useState} from 'react'
-import {useLocation} from "react-router-dom";
+import {useLocation} from "react-router-dom"
 import {lang} from "../../../assets/scripts/global";
 import $api from "../../../api/apiConfig";
 import {toast} from "react-hot-toast";
-import {postAttachment} from "../../../api/apiResp";
 
 const Registre = ({ univer, title, inpTitle, inpPlaceholder }) => {
 
@@ -62,18 +61,49 @@ const Registre = ({ univer, title, inpTitle, inpPlaceholder }) => {
 
         // google sheets
         const formData2 = new FormData()
-        formData2.append('Name', name)
+        formData2.append('UniversityName', companyName)
+        formData2.append('FullName', name)
+        formData2.append('Post', post)
+        formData2.append('PhoneNumber', phoneNumber)
         formData2.append('Email', email)
-        formData2.append('Message', companyName)
+        formData2.append('Country', country)
+        formData2.append('City', city)
+        formData2.append('Street', street)
+        formData2.append('WebSite', site)
+        formData2.append('Instagram', instagram)
+        formData2.append('Telegram', telegram)
 
-        $api
-            .post('https://script.google.com/macros/s/AKfycbx23CivUNIMv0mnJMLiCBAxaBiBDDg2F0tbqIjRIn06p083yuosoknGQXrPm6okoCtTDQ/exec', formData2)
-            .then(res => {
-                console.log(res)
-            })
+        postFormData2(e, formData2)
     }
 
 
+    const postFormData2 = async (e, body) => {
+        e.preventDefault();
+
+        // Google Sheets API endpoint through cors-anywhere proxy
+        const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+        const apiUrl = 'https://script.google.com/macros/s/AKfycbw2OI09aSQ677-3OWMhJAshM0Q_sE8rtsBAtxBICFz__4uz5YWQIo0JGt8a0AaDS72G/exec';
+
+        // Prepare the form data
+        const formData = body
+
+        try {
+            const response = await fetch(proxyUrl + apiUrl, {
+                method: 'POST',
+                body: formData,
+            });
+
+            // Handle the response as needed
+            const data = await response.json();
+            console.log(data);
+        } catch (error) {
+            console.error('Error submitting form data:', error);
+        }
+    };
+
+
+
+    // scroll to form
     const location = useLocation()
     useEffect(() => {
         const formElement = document.getElementById('form')
