@@ -73,34 +73,30 @@ const Registre = ({ univer, title, inpTitle, inpPlaceholder }) => {
         formData2.append('Instagram', instagram)
         formData2.append('Telegram', telegram)
 
-        postFormData2(e, formData2)
+        Submit(e, formData2)
     }
 
+    function Submit(e, body) {
+        // e.preventDefault()
 
-    const postFormData2 = async (e, body) => {
-        e.preventDefault();
-
-        // Google Sheets API endpoint through cors-anywhere proxy
-        const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
-        const apiUrl = 'https://script.google.com/macros/s/AKfycbw2OI09aSQ677-3OWMhJAshM0Q_sE8rtsBAtxBICFz__4uz5YWQIo0JGt8a0AaDS72G/exec';
-
-        // Prepare the form data
-        const formData = body
-
-        try {
-            const response = await fetch(proxyUrl + apiUrl, {
-                method: 'POST',
-                body: formData,
+        const formEle = document.querySelector("form");
+        const formDatab = new FormData(formEle);
+        // console.log(formEle, formDatab)
+        fetch(
+            "https://script.google.com/macros/s/AKfycbx23CivUNIMv0mnJMLiCBAxaBiBDDg2F0tbqIjRIn06p083yuosoknGQXrPm6okoCtTDQ/exec",
+            {
+                method: "POST",
+                body: body,
+            }
+        )
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data);
+            })
+            .catch((error) => {
+                console.log(error);
             });
-
-            // Handle the response as needed
-            const data = await response.json();
-            console.log(data);
-        } catch (error) {
-            console.error('Error submitting form data:', error);
-        }
-    };
-
+    }
 
 
     // scroll to form

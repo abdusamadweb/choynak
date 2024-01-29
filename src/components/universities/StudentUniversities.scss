@@ -91,7 +91,7 @@
           position: absolute;
           bottom: 1rem;
           left: 1rem;
-          width: 100%;
+          width: calc(100% - 1rem);
           padding-top: 1.5rem;
           border-top: 1px solid #ffffff30;
           z-index: 2;

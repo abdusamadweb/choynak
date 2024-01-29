@@ -73,6 +73,7 @@ const StudentUniversities = ({ country }) => {
     // universities
     const [effect, setEffect] = useState(false)
     const [result, setResult] = useState([])
+    const [resultCount, setResultCount] = useState(6)
     useEffect(() => {
         let params = {
             'whereRelation[country][name]': country ? country : countriesSl,
@@ -162,17 +163,12 @@ const StudentUniversities = ({ country }) => {
                     </div>
                     <ul className="content__list">
                         {
-                            result?.map(i => (
+                            result?.slice(0, resultCount)?.map(i => (
                                 <li className='item' key={i.id}>
                                     <Link className='item__link' to={`/universities/${i.name.toLowerCase()}`}>
                                         <LoadImg url={i.mainImg?.full_url} />
                                         <div className="item__titles">
-                                            <h3 className="title">
-                                                {
-                                                    lang === 'ru'? 'Университет ' : 'University '
-                                                }
-                                                { i.name }
-                                            </h3>
+                                            <h3 className="title">{ i.name }</h3>
                                             <div className='flag'>
                                                 <img src={i.country?.logo?.full_url} alt="flags"/>
                                                 <span>{ i.country?.name }</span>
@@ -185,8 +181,8 @@ const StudentUniversities = ({ country }) => {
                         }
                     </ul>
                     {
-                        result?.length > 6 &&
-                        <button className='btn more'>Show more</button>
+                        (result?.length > 6 && resultCount <= result?.length) &&
+                        <button className='btn more' onClick={() => setResultCount(prev => prev+6)}>Show more</button>
                     }
                 </div>
             </div>

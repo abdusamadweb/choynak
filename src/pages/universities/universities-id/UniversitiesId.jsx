@@ -23,7 +23,7 @@ const UniversitiesId = () => {
             <UniCoun
                 id={id}
                 univer={result?.country?.name}
-                title={result?.name}
+                title={lang === 'ru' ? result?.nameRu : result?.name}
                 desc={lang === 'ru' ? result.descRu : result.descEn}
                 logo={result?.logo?.full_url}
                 mainImg={result?.mainImg?.full_url}

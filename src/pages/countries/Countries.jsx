@@ -44,14 +44,11 @@ const Countries = () => {
                                 style={{backgroundImage: `url(${i.mainImg?.full_url})`}}
                             >
                                 <div className="bg"/>
-                                <Link className='relative' to={i.name?.toLowerCase()}>
-                                    <img className='img' src={i.logo?.full_url} alt="img"/>
-                                    <h3 className="title">
-                                        {
-                                            lang === 'ru' ? 'Учеба в ' : 'Study in'
-                                        }
-                                        { i.name }
-                                    </h3>
+                                <Link className='item__link relative' to={i.name?.toLowerCase()}>
+                                    <div className="relative">
+                                        <img className='img' src={i.logo?.full_url} alt="img"/>
+                                        <h3 className="title">{ i.name }</h3>
+                                    </div>
                                 </Link>
                             </li>
                         ))

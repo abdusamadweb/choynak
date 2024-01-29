@@ -45,7 +45,6 @@
       height: 25vw;
       display: grid;
       place-items: center;
-      padding: 2rem;
       border-radius: 15px;
       background-repeat: no-repeat;
       background-position: center;
@@ -62,7 +61,11 @@
         z-index: 1;
       }
 
+      &__link {
+        padding: 2rem;
+      }
       .relative {
+        width: 100%;
         text-align: center;
         z-index: 2;
 

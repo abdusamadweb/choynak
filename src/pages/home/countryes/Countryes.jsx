@@ -69,7 +69,7 @@ const Countryes = () => {
                                     <Link className='item__link item__link1' to={`/countries/${i.name?.toLowerCase()}`}>
                                         <LoadImg url={i.mainImg?.full_url} />
                                         <div className="bg2 grid-center">
-                                            <span className='txt'>{ lang === 'ru' ? 'УЧЕБА В ' : 'STUDY IN ' } <br/> { i.name }</span>
+                                            <span className='txt'>{ i.name }</span>
                                         </div>
                                     </Link>
                                 </SwiperSlide>

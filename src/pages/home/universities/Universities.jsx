@@ -67,12 +67,7 @@ const Universities = () => {
                                     <Link className='item__link' to={`/universities/${i.name.toLowerCase()}`}>
                                         <LoadImg url={i.mainImg?.full_url} />
                                         <div className="item__titles">
-                                            <h3 className="title">
-                                                {
-                                                    lang === 'ru'? 'Университет ' : 'University '
-                                                }
-                                                { i.name }
-                                            </h3>
+                                            <h3 className="title">{ i.name }</h3>
                                             <div className='flag'>
                                                 <img src={i?.country?.logo?.full_url} alt="flags"/>
                                                 <span>{ i?.country?.name }</span>
