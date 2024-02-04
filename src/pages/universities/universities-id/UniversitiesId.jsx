@@ -22,6 +22,7 @@ const UniversitiesId = () => {
         <div className='universities-id'>
             <UniCoun
                 id={id}
+                result={result}
                 univer={result?.country?.name}
                 title={lang === 'ru' ? result?.nameRu : result?.name}
                 desc={lang === 'ru' ? result.descRu : result.descEn}

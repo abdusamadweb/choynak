@@ -14,6 +14,7 @@ import axios from "axios";
 
 const UniCoun = ({
      id,
+     result,
      title,
      univer,
      desc,
@@ -26,7 +27,7 @@ const UniCoun = ({
      intake3,
      intake4,
      intake5,
-    universityId
+     universityId
 }) => {
 
 
@@ -73,11 +74,16 @@ const UniCoun = ({
     // program data
     const [navActive, setNavActive] = useState(0)
     const [programs, setPrograms] = useState([])
+
     useEffect(() => {
-        $api
-            .get('/program')
-            .then(res => setPrograms(res.data))
-    }, [])
+        try {
+            const parsedString = JSON.parse(result?.programs)
+            const parsedPrograms = JSON.parse(parsedString)
+            setPrograms(parsedPrograms)
+        } catch (err) {
+            console.error("Error parsing JSON:", err)
+        }
+    }, [result?.programs])
 
     useEffect(() => {
         setProgram(programs?.[0]?.id)
@@ -177,7 +183,7 @@ const UniCoun = ({
                                                         setProgram(i.id)
                                                     }}
                                                 >
-                                                    { i.name }
+                                                    { lang === 'ru' ? i.programNameRu : i.programName }
                                                 </button>
                                             ))
                                         }
@@ -189,8 +195,8 @@ const UniCoun = ({
                                                     className={`list__item ${programName === i.id ? 'active' : ''}`}
                                                     onClick={() => setProgramName(i.id)}
                                                 >
-                                                    <span className='name'>{ i.name }</span>
-                                                    <span className='price'>$ { i.price }</span>
+                                                    <span className='name'>{ lang === 'ru' ? i.nameRu : i.name }</span>
+                                                    <span className='price'>{ i.price }</span>
                                                 </li>
                                             ))
                                         }
