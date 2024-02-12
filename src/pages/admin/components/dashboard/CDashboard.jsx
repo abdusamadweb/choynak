@@ -16,7 +16,7 @@ const CDashboard = ({ title1, title2, count1, count2, balance }) => {
             balanceRequest: count
         }
         $api
-            .post('/for-consult', item, {
+            .post('/application-for-consult', item, {
                 headers: {
                     "Content-Type": 'application/x-www-form-urlencoded',
                     Authorization: 'Bearer OuaeLM2a2OuPJqutOOS40kFSjqmKPd4cj5g5tj84'
