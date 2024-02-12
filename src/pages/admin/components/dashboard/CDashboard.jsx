@@ -5,7 +5,6 @@ import bg from '../../../../assets/images/admin/dashboard-bg-img.png'
 import {lang, me, userAdmin} from "../../../../assets/scripts/global";
 import $api from "../../../../api/apiConfig";
 import {toast} from "react-hot-toast";
-import {logDOM} from "@testing-library/react";
 
 const CDashboard = ({ title1, title2, count1, count2, balance }) => {
 
@@ -18,14 +17,29 @@ const CDashboard = ({ title1, title2, count1, count2, balance }) => {
     }, [])
 
     const balanceRequest = () => {
-        const { locale, ...restOfMe } = me
-        const item = {
-            ...restOfMe,
-            balanceRequest: count
-        }
+        // const { locale, ...restOfMe } = me
+        // const item = {
+        //     ...restOfMe,
+        //     balanceRequest: count
+        // }
+
+        const formData = new FormData()
+        formData.append('companyName', me.companyName)
+        formData.append('fullName', me.fullName)
+        formData.append('post', me.post)
+        formData.append('phoneNumber', me.phoneNumber)
+        formData.append('email', me.email)
+        formData.append('country', me.country)
+        formData.append('city', me.city)
+        formData.append('street', me.street)
+        formData.append('site', me.site)
+        formData.append('instagram', me.instagram)
+        formData.append('telegram', me.telegram)
+        formData.append('balance', me.balance)
+        formData.append('balanceRequest', count)
 
         $api
-            .post(`/application-for-consult/update/${me.id}`, item, {
+            .post(`/application-for-consult/update/${me.id}`, formData, {
                 headers: {
                     "Content-Type": 'application/x-www-form-urlencoded',
                     Authorization: 'Bearer OuaeLM2a2OuPJqutOOS40kFSjqmKPd4cj5g5tj84'

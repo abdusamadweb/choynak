@@ -49,7 +49,6 @@ const StudentForm = ({ setEffect }) => {
         formData.append('passportSerie', passportSerie)
         formData.append('passportNumber', passportNumber)
         formData.append('passportFile', passportFile)
-        console.log(passportFile , 'in')
 
         formData.append('phoneNumber', phoneNumber)
         formData.append('email', email)
