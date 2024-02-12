@@ -54,9 +54,6 @@ const Registre = ({ univer, title, inpTitle, inpPlaceholder }) => {
             .catch(err => {
                 toast.error(err?.response?.data?.message)
             })
-            .catch(err => {
-                toast.error(err?.response?.data?.message)
-            })
 
 
         // google sheets
@@ -94,8 +91,8 @@ const Registre = ({ univer, title, inpTitle, inpPlaceholder }) => {
                 console.log(data);
             })
             .catch((error) => {
-                console.log(error);
-            });
+                console.log(error)
+            })
     }
 
 

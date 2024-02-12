@@ -1,10 +1,36 @@
 import './CDashboard.scss'
-import React from 'react'
+import React, {useState} from 'react'
 import img from '../../../../assets/images/admin/dashboard-img.png'
 import bg from '../../../../assets/images/admin/dashboard-bg-img.png'
 import {lang, me, userAdmin} from "../../../../assets/scripts/global";
+import $api from "../../../../api/apiConfig";
+import {toast} from "react-hot-toast";
 
 const CDashboard = ({ title1, title2, count1, count2, balance }) => {
+
+    const [count, setCount] = useState('')
+
+    const balanceRequest = () => {
+        const item = {
+            ...me,
+            balanceRequest: count
+        }
+        $api
+            .post('/for-consult', item, {
+                headers: {
+                    "Content-Type": 'application/x-www-form-urlencoded',
+                    Authorization: 'Bearer Tad216tIaccvhAKVAd5TYssnZqM63IUBVwNiHFUM'
+                }
+            })
+            .then(() => {
+                toast.success('Success!')
+            })
+            .catch(err => {
+                toast.error(err?.response?.data?.message)
+            })
+    }
+
+
     return (
         <div className='c-dashboard'>
             <div className="container">
@@ -19,7 +45,7 @@ const CDashboard = ({ title1, title2, count1, count2, balance }) => {
                 <div className="body align-center">
                     {
                         !balance ?
-                        <>
+                            <>
                             <div className="body__card">
                                 <div className='row align-center g1 mb1'>
                                     <i className="fa-solid fa-user-graduate"/>
@@ -48,10 +74,13 @@ const CDashboard = ({ title1, title2, count1, count2, balance }) => {
                                     <p className='desc'>{ lang === 'ru' ? 'ОТПРАВИТЬ ЗАПРОС НА ВЫВОД СРЕДСТВ' : 'SEND A WITHDRAWAL REQUEST' }</p>
                                     <input
                                         className='inp'
-                                        type="tel"
+                                        type="number"
                                         placeholder='Enter the amount'
+                                        onChange={(e) => setCount(e.target.value)}
                                     />
-                                    <button className="btnn">{ lang === 'ru' ? 'Отправить запрос' : 'Send request' }</button>
+                                    <button className="btnn" onClick={balanceRequest}>
+                                        { lang === 'ru' ? 'Отправить запрос' : 'Send request' }
+                                    </button>
                                 </div>
                             </>
                     }

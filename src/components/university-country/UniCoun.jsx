@@ -56,13 +56,15 @@ const UniCoun = ({
             .post('https://api.choynak.org/api/e5211d4e897f44198925b679e91bf0f0/university-application', formData, {
                 headers: {
                     "Content-Type": 'application/x-www-form-urlencoded',
-                    Authorization: 'Bearer Tad216tIaccvhAKVAd5TYssnZqM63IUBVwNiHFUM'
+                    Authorization: 'Bearer OuaeLM2a2OuPJqutOOS40kFSjqmKPd4cj5g5tj84'
                 }
         })
             .then(() => {
                 toast.success(lang === 'ru' ? 'Ваша заявка принята!' : 'Your application has been accepted!')
             })
-            .catch(() => console.log('Error !'))
+            .catch(err => {
+                toast.error(err?.response?.data?.message)
+            })
     }
 
 

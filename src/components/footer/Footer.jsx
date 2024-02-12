@@ -38,7 +38,7 @@ const Footer = ({ general }) => {
                     </Link>
                     <address className='footer__address'>
                         {
-                            lang === 'ru' ? general?.addressEn : general?.addressRu
+                            lang === 'ru' ? general?.addressRu : general?.addressEn
                         }
                     </address>
                     <div>
