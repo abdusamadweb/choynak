@@ -40,6 +40,7 @@ const UniCoun = ({
     const [email, setEmail] = useState('')
     const [program, setProgram] = useState('')
     const [programName, setProgramName] = useState('')
+    const [programPrice, setProgramPrice] = useState('')
     const postFormData = (e) => {
         e.preventDefault()
 
@@ -49,7 +50,7 @@ const UniCoun = ({
         formData.append('email', email)
         formData.append('university', universityId)
         formData.append('program', program)
-        formData.append('programName', programName)
+        formData.append('programName', programName + " " + programPrice)
         formData.append('confirm', 'false')
 
         axios
@@ -88,8 +89,9 @@ const UniCoun = ({
     }, [result?.programs])
 
     useEffect(() => {
-        setProgram(programs?.[0]?.id)
-        setProgramName(programs?.[0]?.programPrices?.[0]?.id)
+        setProgram(programs?.[0]?.programName)
+        setProgramName(programs?.[0]?.programPrices?.[0]?.name)
+        setProgramPrice(programs?.[0]?.programPrices?.[0]?.price)
     }, [programs])
 
 
@@ -182,7 +184,7 @@ const UniCoun = ({
                                                     className={`navs__btn ${navActive === num ? 'active' : ''}`}
                                                     onClick={() => {
                                                         setNavActive(num)
-                                                        setProgram(i.id)
+                                                        setProgram(i.programName)
                                                     }}
                                                 >
                                                     { lang === 'ru' ? i.programNameRu : i.programName }
@@ -194,8 +196,11 @@ const UniCoun = ({
                                         {
                                             programs[navActive]?.programPrices?.map(i => (
                                                 <li
-                                                    className={`list__item ${programName === i.id ? 'active' : ''}`}
-                                                    onClick={() => setProgramName(i.id)}
+                                                    className={`list__item ${programName === i.name ? 'active' : ''}`}
+                                                    onClick={() => {
+                                                        setProgramName(i.name)
+                                                        setProgramPrice(i.price)
+                                                    }}
                                                 >
                                                     <span className='name'>{ lang === 'ru' ? i.nameRu : i.name }</span>
                                                     <span className='price'>{ i.price }</span>
