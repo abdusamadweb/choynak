@@ -10,32 +10,8 @@ const CDashboard = ({ title1, title2, count1, count2, balance }) => {
 
     const [count, setCount] = useState('')
 
-    useEffect(() => {
-        $api
-            .get(`/application-for-consult`)
-            .then(res => console.log(res))
-    }, [])
-
     const balanceRequest = () => {
-        // const { locale, ...restOfMe } = me
-        // const item = {
-        //     ...restOfMe,
-        //     balanceRequest: count
-        // }
-
         const formData = new FormData()
-        formData.append('companyName', me.companyName)
-        formData.append('fullName', me.fullName)
-        formData.append('post', me.post)
-        formData.append('phoneNumber', me.phoneNumber)
-        formData.append('email', me.email)
-        formData.append('country', me.country)
-        formData.append('city', me.city)
-        formData.append('street', me.street)
-        formData.append('site', me.site)
-        formData.append('instagram', me.instagram)
-        formData.append('telegram', me.telegram)
-        formData.append('balance', me.balance)
         formData.append('balanceRequest', count)
 
         $api
