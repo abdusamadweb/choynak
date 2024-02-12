@@ -78,7 +78,7 @@ const StudentForm = ({ setEffect }) => {
             .post(`/application-for-student/update/${me?.id}`, formData, {
                 headers: {
                     "Content-Type": 'application/x-www-form-urlencoded',
-                    Authorization: 'Bearer Tad216tIaccvhAKVAd5TYssnZqM63IUBVwNiHFUM'
+                    Authorization: 'Bearer OuaeLM2a2OuPJqutOOS40kFSjqmKPd4cj5g5tj84'
                 }
             })
             .then(res => {

@@ -28,7 +28,7 @@ export const postAttachment = (url, files) => {
         .post(url, formData, {
             headers: {
                 "Content-type": "multipart/form-data",
-                Authorization: 'Bearer Tad216tIaccvhAKVAd5TYssnZqM63IUBVwNiHFUM'
+                Authorization: 'Bearer OuaeLM2a2OuPJqutOOS40kFSjqmKPd4cj5g5tj84'
             }
         })
         .then(res => {

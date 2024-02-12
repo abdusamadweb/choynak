@@ -36,7 +36,7 @@ const TableItem = ({ i, num, setEffect }) => {
 
         $api
             .post(`/university-application/update/${id}`, formData, {
-                headers: { Authorization: 'Bearer Tad216tIaccvhAKVAd5TYssnZqM63IUBVwNiHFUM' }
+                headers: { Authorization: 'Bearer OuaeLM2a2OuPJqutOOS40kFSjqmKPd4cj5g5tj84' }
             })
             .then(() => {
                 toast.success('Success!')
@@ -53,7 +53,7 @@ const TableItem = ({ i, num, setEffect }) => {
 
         $api
             .delete(`university-application/${id}`, {
-                headers: { Authorization: 'Bearer Tad216tIaccvhAKVAd5TYssnZqM63IUBVwNiHFUM' }
+                headers: { Authorization: 'Bearer OuaeLM2a2OuPJqutOOS40kFSjqmKPd4cj5g5tj84' }
             })
             .then(() => {
                 toast.success('Success!')

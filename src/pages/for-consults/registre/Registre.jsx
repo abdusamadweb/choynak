@@ -45,7 +45,7 @@ const Registre = ({ univer, title, inpTitle, inpPlaceholder }) => {
             .post(univer ? 'application-for-university' : 'application-for-consult', formData, {
                 headers: {
                     "Content-Type": 'application/x-www-form-urlencoded',
-                    "Authorization": 'Bearer Tad216tIaccvhAKVAd5TYssnZqM63IUBVwNiHFUM'
+                    "Authorization": 'Bearer OuaeLM2a2OuPJqutOOS40kFSjqmKPd4cj5g5tj84'
                 }
             })
             .then(() => {
