@@ -1,20 +1,29 @@
 import './CDashboard.scss'
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import img from '../../../../assets/images/admin/dashboard-img.png'
 import bg from '../../../../assets/images/admin/dashboard-bg-img.png'
 import {lang, me, userAdmin} from "../../../../assets/scripts/global";
 import $api from "../../../../api/apiConfig";
 import {toast} from "react-hot-toast";
+import {logDOM} from "@testing-library/react";
 
 const CDashboard = ({ title1, title2, count1, count2, balance }) => {
 
     const [count, setCount] = useState('')
 
+    useEffect(() => {
+        $api
+            .get(`/application-for-consult`)
+            .then(res => console.log(res))
+    }, [])
+
     const balanceRequest = () => {
+        const { locale, ...restOfMe } = me
         const item = {
-            ...me,
+            ...restOfMe,
             balanceRequest: count
         }
+
         $api
             .post(`/application-for-consult/update/${me.id}`, item, {
                 headers: {
