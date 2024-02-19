@@ -31,6 +31,7 @@ const UniversitiesId = () => {
                 images={result.images}
                 youtube={result.youtubeLink}
                 universityId={result?.id}
+                universityName={result?.name}
             />
         </div>
     )

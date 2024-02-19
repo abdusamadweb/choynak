@@ -27,7 +27,8 @@ const UniCoun = ({
      intake3,
      intake4,
      intake5,
-     universityId
+     universityId,
+    universityName
 }) => {
 
 
@@ -38,9 +39,9 @@ const UniCoun = ({
     const [name, setName] = useState('')
     const [phoneNumber, setPhoneNumber] = useState('')
     const [email, setEmail] = useState('')
-    const [program, setProgram] = useState('')
-    const [programName, setProgramName] = useState('')
-    const [programPrice, setProgramPrice] = useState('')
+    const [program, setProgram] = useState([])
+    const [programPrice, setProgramPrice] = useState([])
+
     const postFormData = (e) => {
         e.preventDefault()
 
@@ -49,8 +50,8 @@ const UniCoun = ({
         formData.append('phoneNumber', phoneNumber)
         formData.append('email', email)
         formData.append('university', universityId)
-        formData.append('program', program)
-        formData.append('programName', programName + " " + programPrice)
+        formData.append('program', program?.id)
+        formData.append('programPrice', programPrice ? programPrice?.id : programPrices?.[0]?.id)
         formData.append('confirm', 'false')
 
         axios
@@ -69,30 +70,29 @@ const UniCoun = ({
     }
 
 
+    // program data
+    const [navActive, setNavActive] = useState(0)
+
+    const [programPrices, setProgramPrices] = useState([])
+    useEffect(() => {
+        $api
+            .get(`/program-price?whereRelation[university][name]=${universityName}&whereRelation[program][name]=${program?.name}`)
+            .then(res => {
+                setProgramPrices(res.data)
+            })
+    }, [program?.name, universityName])
+
+
+    // set default programs
+    useEffect(() => {
+        setProgram(result?.program?.[0])
+        setProgramPrice(programPrices?.[0])
+    }, [result?.program])
+
+
     // slider
     const [slide, setSlide] = useState(0)
     const [slideActive, setSlideActive] = useState(0)
-
-
-    // program data
-    const [navActive, setNavActive] = useState(0)
-    const [programs, setPrograms] = useState([])
-
-    useEffect(() => {
-        try {
-            const parsedString = JSON.parse(result?.programs)
-            const parsedPrograms = JSON.parse(parsedString)
-            setPrograms(parsedPrograms)
-        } catch (err) {
-            console.error("Error parsing JSON:", err)
-        }
-    }, [result?.programs])
-
-    useEffect(() => {
-        setProgram(programs?.[0]?.programName)
-        setProgramName(programs?.[0]?.programPrices?.[0]?.name)
-        setProgramPrice(programs?.[0]?.programPrices?.[0]?.price)
-    }, [programs])
 
 
     // universities rank
@@ -179,28 +179,27 @@ const UniCoun = ({
                                     </h3>
                                     <div className="navs row align-center g1">
                                         {
-                                            programs?.map((i, num) => (
+                                            result?.program?.map((i, num) => (
                                                 <button
                                                     className={`navs__btn ${navActive === num ? 'active' : ''}`}
+                                                    key={i.id}
                                                     onClick={() => {
                                                         setNavActive(num)
-                                                        setProgram(i.programName)
+                                                        setProgram(i)
                                                     }}
                                                 >
-                                                    { lang === 'ru' ? i.programNameRu : i.programName }
+                                                    { lang === 'ru' ? i.nameRu : i.name }
                                                 </button>
                                             ))
                                         }
                                     </div>
                                     <ul className='list'>
                                         {
-                                            programs[navActive]?.programPrices?.map(i => (
+                                            programPrices?.map(i => (
                                                 <li
-                                                    className={`list__item ${programName === i.name ? 'active' : ''}`}
-                                                    onClick={() => {
-                                                        setProgramName(i.name)
-                                                        setProgramPrice(i.price)
-                                                    }}
+                                                    className={`list__item ${programPrice?.id === i.id ? 'active' : ''}`}
+                                                    key={i.id}
+                                                    onClick={() => setProgramPrice(i)}
                                                 >
                                                     <span className='name'>{ lang === 'ru' ? i.nameRu : i.name }</span>
                                                     <span className='price'>{ i.price }</span>
