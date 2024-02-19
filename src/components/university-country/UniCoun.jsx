@@ -63,6 +63,10 @@ const UniCoun = ({
         })
             .then(() => {
                 toast.success(lang === 'ru' ? 'Ваша заявка принята!' : 'Your application has been accepted!')
+
+                setName('')
+                setPhoneNumber('')
+                setEmail('')
             })
             .catch(err => {
                 toast.error(err?.response?.data?.message)
