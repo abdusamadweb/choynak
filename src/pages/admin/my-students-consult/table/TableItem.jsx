@@ -125,7 +125,7 @@ const TableItem = ({ i, num, setEffect }) => {
                                 placeholder='Type . . .'
                                 disabled={true}
                                 ref={program}
-                                defaultValue={i?.programName?.name + ', ' + i?.program?.name}
+                                defaultValue={i?.programPrice?.name + ', ' + i?.program?.name}
                             />
                         </label>
                     </form>
