@@ -137,11 +137,44 @@
         }
       }
     }
+
+    .add-btn {
+      padding: 10px 1rem;
+      margin-top: 1rem;
+      border-radius: 10px;
+      color: #fff;
+      background: var(--admin-cl);
+    }
   }
 
+  .modal.add {
+    .form {
+
+      label {
+        margin-bottom: 1rem;
+
+        .inp {
+          border-color: #E8EAED;
+        }
+      }
+
+      &__btn {
+        display: block;
+        margin-left: auto;
+        padding: 12px 2rem;
+        border-radius: 10px;
+        color: #fff;
+        background: var(--admin-cl);
+      }
+    }
+  }
+  
   .modal {
 
     .form {
+      &.del {
+        width: 400px;
+      }
 
       &__title {
         display: block;

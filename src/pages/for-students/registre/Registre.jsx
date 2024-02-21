@@ -210,11 +210,8 @@ const Registre = () => {
                             <div className='inps'>
                                 <input
                                     className='inp date'
-                                    type="date"
-                                    placeholder="ГГГГ-ММ-ДД"
-                                    readOnly={true}
-                                    onFocus="(this.type='date')"
-                                    onBlur="(this.type='text')"
+                                    type="text"
+                                    placeholder="Ex: 22.02.2002"
                                     onChange={(e) => setDate(e.target.value)}
                                 />
                                 <i className="fa-solid fa-calendar-days"/>

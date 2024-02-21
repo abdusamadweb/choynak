@@ -85,7 +85,7 @@ const SignIn = () => {
                                 />
                             </label>
                             <label className='mb1'>
-                                <span className='txt'>Phone number:</span>
+                                <span className='txt'>Password:</span>
                                 <input
                                     className='inp'
                                     type="password"

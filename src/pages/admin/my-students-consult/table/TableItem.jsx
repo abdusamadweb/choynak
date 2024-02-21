@@ -58,7 +58,7 @@ const TableItem = ({ i, num, setEffect }) => {
             <span className='txt'>{num + 1}</span>
             <span className='txt'>{i?.fullName}</span>
             <span className='txt'>{i?.university?.name}</span>
-            <span className='txt'>{i?.programName?.name + ', ' +i?.program?.name}</span>
+            <span className='txt'>{i?.programPrice?.name + ', ' + i?.program?.name}</span>
             <div className='txt btns d-flex align-center'>
                 <button
                     onClick={() => setModal(true)}>{lang === 'ru' ? 'Смотреть' : 'View'}</button>
@@ -125,7 +125,7 @@ const TableItem = ({ i, num, setEffect }) => {
                                 placeholder='Type . . .'
                                 disabled={true}
                                 ref={program}
-                                defaultValue={i?.programName?.name + ', ' +i?.program?.name}
+                                defaultValue={i?.programName?.name + ', ' + i?.program?.name}
                             />
                         </label>
                     </form>
@@ -135,7 +135,7 @@ const TableItem = ({ i, num, setEffect }) => {
             {
                 del &&
                 <div className='modal'>
-                    <div className="form">
+                    <div className="form del">
                         <span className="form__title">{lang === 'ru' ? 'Подтвердите' : 'Confirm'}</span>
                         <div className='btns'>
                             <button

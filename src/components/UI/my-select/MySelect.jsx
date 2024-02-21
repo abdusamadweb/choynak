@@ -1,13 +1,14 @@
 import './MySelect.scss'
 import React from 'react'
 
-const MySelect = ({ value, setValue, disabled, className, children }) => {
+const MySelect = ({ value, setValue, disabled, className, name, children }) => {
     return (
         <>
             <label className="select" htmlFor="slct">
                 <select
                     id="slct"
                     className={className}
+                    name={name}
                     disabled={disabled}
                     value={value}
                     onChange={(e) => setValue(e.target.value)}
