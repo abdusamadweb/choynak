@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import {lang} from "../../../../assets/scripts/global";
+import {lang, me} from "../../../../assets/scripts/global";
 import TableItem from "./TableItem";
 import $api from "../../../../api/apiConfig";
 import {toast} from "react-hot-toast";
@@ -53,12 +53,13 @@ const Table = ({title, list, setEffect}) => {
             university: university.value,
             program: program.value,
             programPrice: programPrice.value,
-            confirm: false
+            confirm: false,
+            consultId: me?.id
         }
         console.log(item, ' ITEM')
 
         $api
-            .post('', item, {
+            .post('/university-application', item, {
                 headers: {
                     "Content-Type": 'application/x-www-form-urlencoded',
                     Authorization: 'Bearer OuaeLM2a2OuPJqutOOS40kFSjqmKPd4cj5g5tj84'
