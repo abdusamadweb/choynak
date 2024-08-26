@@ -14,7 +14,7 @@ const NavBar = ({ modal, setModal, result, setSearch, logOut }) => {
             link: '/for-students'
         },
         {
-            name_en: 'For consults',
+            name_en: 'For agents',
             name_ru: 'Для консультантов',
             link: '/for-consults'
         },
